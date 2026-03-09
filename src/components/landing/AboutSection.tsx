@@ -15,15 +15,8 @@ const AboutSection = () => (
           transition={{ duration: 0.6 }}
         >
           <div className="relative">
-            <div className="w-full aspect-[4/3] rounded-3xl bg-secondary border border-border flex items-center justify-center shadow-card overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5" />
-              <div className="text-center p-8 relative z-10">
-                <div className="w-20 h-20 rounded-full bg-primary/10 mx-auto mb-3 flex items-center justify-center">
-                  <BookOpen className="text-primary" size={32} />
-                </div>
-                <p className="font-display text-lg text-foreground font-semibold">About Image</p>
-                <p className="font-body text-sm text-muted-foreground mt-1">Placeholder</p>
-              </div>
+            <div className="w-full aspect-[4/3] rounded-3xl bg-secondary border border-border shadow-card overflow-hidden">
+              <img src={aboutQuran} alt="Child reading Quran" className="w-full h-full object-cover" />
             </div>
             <motion.div
               animate={{ y: [0, -6, 0] }}
