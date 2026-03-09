@@ -73,6 +73,7 @@ const courses = [
     desc: "Learn essential daily duas and supplications with meaning.",
     longDesc: "Enrich your daily worship with authentic duas from the Quran and Sunnah. Learn the meaning, pronunciation, and occasions for each supplication.",
     learns: ["Learn essential daily duas", "Understand meanings and context", "Memorize with proper Arabic pronunciation", "Apply duas in daily worship routine"],
+    image: courseSupplication,
   },
 ];
 
