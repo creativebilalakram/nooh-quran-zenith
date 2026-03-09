@@ -83,13 +83,13 @@ const HeroSection = () => {
             </motion.span>
             <h1 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] xl:text-6xl font-bold text-foreground leading-[1.1] mb-7">
               Learn Quran Online with a{" "}
-              <span className="text-primary relative">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-[hsl(217,91%,60%)] to-primary">
                 Certified Teacher
                 <motion.div
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ delay: 0.8, duration: 0.6 }}
-                  className="absolute -bottom-1 left-0 right-0 h-[3px] bg-accent/40 origin-left rounded-full"
+                  className="h-[3px] bg-gradient-to-r from-primary/60 via-[hsl(217,91%,60%)]/40 to-transparent origin-left rounded-full"
                 />
               </span>
             </h1>

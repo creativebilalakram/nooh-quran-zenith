@@ -65,7 +65,7 @@ const PricingSection = () => (
                   <motion.div
                     className="absolute w-[200%] h-[200%] top-[-50%] left-[-50%]"
                     style={{
-                      background: `conic-gradient(from 0deg, transparent 0%, transparent 70%, hsl(var(--accent)) 80%, hsl(var(--gold)) 90%, transparent 100%)`,
+                      background: `conic-gradient(from 0deg, transparent 0%, transparent 70%, hsl(var(--primary)) 80%, hsl(217 91% 60%) 90%, transparent 100%)`,
                     }}
                     animate={{ rotate: 360 }}
                     transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
@@ -75,14 +75,14 @@ const PricingSection = () => (
               )}
 
               <div
-                className={`relative z-10 rounded-3xl border py-10 px-8 flex flex-col h-full transition-all duration-500 hover:-translate-y-2 hover:shadow-card-hover ${
+                className={`relative z-10 rounded-3xl border py-10 px-8 flex flex-col h-full transition-all duration-500 hover:-translate-y-2.5 hover:shadow-xl ${
                   plan.popular
                     ? "border-transparent bg-card shadow-card-hover scale-[1.03]"
-                    : "border-border bg-card shadow-card"
+                    : "border-border bg-card shadow-card hover:shadow-card-hover"
                 }`}
               >
                 {plan.popular && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gold-gradient text-accent-foreground font-body text-xs font-bold px-5 py-1.5 rounded-full flex items-center gap-1.5 shadow-gold z-20">
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[image:var(--btn-gradient)] text-primary-foreground font-body text-xs font-bold px-5 py-1.5 rounded-full flex items-center gap-1.5 shadow-[var(--shadow-primary)] z-20">
                     <Star size={12} className="drop-shadow-sm" /> Most Popular
                   </div>
                 )}

@@ -108,7 +108,7 @@ const CoursesSection = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.06, duration: 0.5 }}
                 onClick={() => setSelected(course)}
-                className="group cursor-pointer bg-card rounded-2xl border border-border overflow-hidden shadow-card hover:shadow-card-hover hover:-translate-y-2 transition-all duration-500"
+                className="group cursor-pointer bg-card rounded-2xl border border-border overflow-hidden shadow-card hover:shadow-xl hover:-translate-y-2.5 transition-all duration-300"
               >
                 {/* Course thumbnail */}
                 <div className="relative h-40 overflow-hidden">

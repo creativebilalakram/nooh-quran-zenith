@@ -8,7 +8,7 @@ import ImageWithSkeleton from "@/components/ui/image-skeleton";
 const trustItems = ["Free Trial Available", "One-on-One Classes", "Flexible Schedule"];
 
 const FinalCTA = () => (
-  <section className="py-20 md:py-28 bg-cta-gradient relative overflow-hidden">
+  <section className="py-20 md:py-28 bg-[image:var(--cta-gradient)] relative overflow-hidden">
     <motion.div
       className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary-foreground/[0.02] blur-[120px]"
       animate={{ scale: [1, 1.12, 1] }}

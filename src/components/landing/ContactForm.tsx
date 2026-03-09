@@ -44,7 +44,7 @@ const ContactForm = () => (
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="bg-cta-gradient rounded-3xl p-8 md:p-10 flex flex-col justify-between"
+          className="bg-[image:var(--cta-gradient)] rounded-3xl p-8 md:p-10 flex flex-col justify-between relative overflow-hidden"
         >
           <div>
             <h3 className="font-display text-2xl font-bold text-primary-foreground mb-3">

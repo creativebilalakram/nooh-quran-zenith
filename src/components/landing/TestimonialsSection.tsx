@@ -101,7 +101,7 @@ const TestimonialsSection = () => {
             <div
               key={i}
               onClick={() => openLightbox(i)}
-              className="w-[260px] sm:w-[280px] md:w-[320px] flex-shrink-0 rounded-2xl border border-border/60 bg-card overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_24px_hsl(var(--gold)/0.12)] shadow-[var(--shadow-md)]"
+              className="w-[260px] sm:w-[280px] md:w-[320px] flex-shrink-0 rounded-2xl border border-border/60 bg-card overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:shadow-xl shadow-[var(--shadow-md)]"
             >
               <div className="relative w-full">
                 <img
