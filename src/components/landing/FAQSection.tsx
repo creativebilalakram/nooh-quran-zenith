@@ -65,16 +65,16 @@ const FAQSection = () => (
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="max-w-3xl mx-auto"
+        className="max-w-5xl mx-auto"
       >
-        <Accordion type="single" collapsible className="space-y-4">
+        <Accordion type="single" collapsible className="grid md:grid-cols-2 gap-4">
           {faqs.map((faq, i) => (
             <AccordionItem
               key={i}
               value={`item-${i}`}
-              className="bg-card border border-border rounded-2xl px-6 md:px-8 shadow-card data-[state=open]:shadow-card-hover transition-shadow duration-300"
+              className="bg-card border border-border rounded-2xl px-6 md:px-8 shadow-card data-[state=open]:shadow-card-hover transition-shadow duration-300 self-start"
             >
-              <AccordionTrigger className="font-display text-base md:text-lg font-semibold text-foreground hover:no-underline py-6">
+              <AccordionTrigger className="font-display text-base font-semibold text-foreground hover:no-underline py-6">
                 {faq.question}
               </AccordionTrigger>
               <AccordionContent className="font-body text-muted-foreground text-sm md:text-base leading-relaxed pb-6">
