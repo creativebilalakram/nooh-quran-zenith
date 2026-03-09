@@ -35,7 +35,7 @@ const HeroSection = () => {
       </div>
 
       {/* Gradient overlay with transparency so bg shows through */}
-      <div className="absolute inset-0 z-[1] bg-background/55" />
+      <div className="absolute inset-0 z-[1] bg-background/70" />
 
       {/* Animated light orbs */}
       <motion.div
