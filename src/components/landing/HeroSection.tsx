@@ -20,13 +20,26 @@ const carouselImages = [
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
+
+  // Preload all carousel images on mount
+  useEffect(() => {
+    carouselImages.forEach(({ src }) => {
+      const img = new Image();
+      img.onload = () => setLoadedImages((prev) => new Set(prev).add(src));
+      img.src = src;
+    });
+  }, []);
+
+  const allLoaded = loadedImages.size === carouselImages.length;
 
   useEffect(() => {
+    if (!allLoaded) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % carouselImages.length);
     }, 4000);
     return () => clearInterval(timer);
-  }, []);
+  }, [allLoaded]);
 
   return (
     <section className="relative min-h-screen pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden flex items-center">
