@@ -112,7 +112,7 @@ const ContactForm = () => (
             <label className="font-body text-sm font-medium text-foreground mb-2 block">Message</label>
             <Textarea placeholder="Tell us about your learning goals..." rows={4} className="font-body rounded-xl" />
           </div>
-          <Button variant="hero" size="lg" className="w-full h-13 text-base">
+          <Button variant="hero" size="lg" className="w-full h-14 text-base rounded-xl">
             Start Your Free Trial
           </Button>
 
