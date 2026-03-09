@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { BookOpen, Globe, Heart } from "lucide-react";
+import aboutQuran from "@/assets/about-quran.png";
 
 const AboutSection = () => (
   <section id="about" className="py-28 bg-background relative overflow-hidden">
