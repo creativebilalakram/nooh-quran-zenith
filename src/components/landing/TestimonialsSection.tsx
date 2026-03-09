@@ -12,8 +12,9 @@ import review6 from "@/assets/reviews/review-6.png";
 import review7 from "@/assets/reviews/review-7.png";
 import review8 from "@/assets/reviews/review-8.png";
 import review9 from "@/assets/reviews/review-9.png";
+import review10 from "@/assets/reviews/review-10.png";
 
-const images = [review1, review2, review3, review4, review5, review6, review7, review8, review9];
+const images = [review1, review2, review3, review4, review5, review6, review7, review8, review9, review10];
 const allImages = [...images, ...images];
 
 const FACEBOOK_REVIEWS_URL =
