@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle, MessageCircle, Play } from "lucide-react";
+import { useState, useEffect } from "react";
 import heroBg from "@/assets/hero-bg.webp";
+import heroStudent1 from "@/assets/hero-student-1.jpg";
+import heroStudent2 from "@/assets/hero-student-2.jpg";
 
 const trustPoints = [
   "3-Day Free Trial — No Card Required",
@@ -9,40 +12,47 @@ const trustPoints = [
   "10+ Years Teaching Experience",
 ];
 
+const carouselImages = [
+  { src: heroStudent1, alt: "Student learning Quran online" },
+  { src: heroStudent2, alt: "Teacher conducting online Quran class" },
+];
+
 const HeroSection = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % carouselImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative min-h-screen pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden flex items-center">
-      {/* Background image */}
-      <div className="absolute inset-0">
-        <img src={heroBg} alt="" className="w-full h-full object-cover opacity-45" />
-        <motion.div
-          animate={{
-            background: [
-              "linear-gradient(135deg, hsl(155 30% 95%) 0%, hsl(43 60% 97%) 50%, hsl(155 25% 96%) 100%)",
-              "linear-gradient(135deg, hsl(43 60% 97%) 0%, hsl(155 30% 95%) 50%, hsl(43 50% 96%) 100%)",
-              "linear-gradient(135deg, hsl(155 30% 95%) 0%, hsl(43 60% 97%) 50%, hsl(155 25% 96%) 100%)",
-            ],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute inset-0"
-        />
-        {/* Animated light orbs */}
-        <motion.div
-          animate={{ x: [0, 60, 0], y: [0, -30, 0], opacity: [0.04, 0.08, 0.04] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-20 right-[20%] w-[500px] h-[500px] bg-primary rounded-full blur-[120px]"
-        />
-        <motion.div
-          animate={{ x: [0, -40, 0], y: [0, 40, 0], opacity: [0.05, 0.09, 0.05] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-0 left-[10%] w-[400px] h-[400px] bg-accent rounded-full blur-[100px]"
-        />
+      {/* Background image - rendered first */}
+      <div className="absolute inset-0 z-0">
+        <img src={heroBg} alt="" className="w-full h-full object-cover" />
       </div>
 
-      {/* Dot pattern */}
-      <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, hsl(var(--foreground)) 1px, transparent 0)', backgroundSize: '48px 48px' }} />
+      {/* Gradient overlay with transparency so bg shows through */}
+      <div className="absolute inset-0 z-[1] bg-background/55" />
 
-      <div className="container mx-auto px-4 relative">
+      {/* Animated light orbs */}
+      <motion.div
+        animate={{ x: [0, 60, 0], y: [0, -30, 0], opacity: [0.04, 0.08, 0.04] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute z-[2] top-20 right-[20%] w-[500px] h-[500px] bg-primary rounded-full blur-[120px]"
+      />
+      <motion.div
+        animate={{ x: [0, -40, 0], y: [0, 40, 0], opacity: [0.05, 0.09, 0.05] }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        className="absolute z-[2] bottom-0 left-[10%] w-[400px] h-[400px] bg-accent rounded-full blur-[100px]"
+      />
+
+      {/* Dot pattern */}
+      <div className="absolute inset-0 z-[3] opacity-[0.015]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, hsl(var(--foreground)) 1px, transparent 0)', backgroundSize: '48px 48px' }} />
+
+      <div className="container mx-auto px-4 relative z-[4]">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -106,14 +116,33 @@ const HeroSection = () => {
             className="hidden lg:flex justify-center"
           >
             <div className="relative w-full max-w-md">
-              <div className="aspect-square rounded-3xl bg-card border border-border flex items-center justify-center shadow-card-hover overflow-hidden relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
-                <div className="text-center p-8 relative z-10">
-                  <div className="w-28 h-28 rounded-full bg-primary/10 mx-auto mb-5 flex items-center justify-center">
-                    <span className="font-display text-4xl text-primary">☪</span>
-                  </div>
-                  <p className="font-display text-xl text-foreground font-bold">Hero Image</p>
-                  <p className="font-body text-sm text-muted-foreground mt-2">Placeholder for academy visual</p>
+              {/* Image Carousel */}
+              <div className="aspect-square rounded-3xl bg-card border border-border shadow-card-hover overflow-hidden relative">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={currentSlide}
+                    src={carouselImages[currentSlide].src}
+                    alt={carouselImages[currentSlide].alt}
+                    initial={{ opacity: 0, scale: 1.1 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </AnimatePresence>
+                {/* Subtle gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 via-transparent to-transparent" />
+                {/* Dots indicator */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                  {carouselImages.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setCurrentSlide(i)}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        i === currentSlide ? "bg-primary-foreground w-6" : "bg-primary-foreground/50"
+                      }`}
+                    />
+                  ))}
                 </div>
               </div>
               {/* Floating badge */}
