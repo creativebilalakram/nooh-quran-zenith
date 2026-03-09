@@ -20,13 +20,26 @@ const carouselImages = [
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
+
+  // Preload all carousel images on mount
+  useEffect(() => {
+    carouselImages.forEach(({ src }) => {
+      const img = new Image();
+      img.onload = () => setLoadedImages((prev) => new Set(prev).add(src));
+      img.src = src;
+    });
+  }, []);
+
+  const allLoaded = loadedImages.size === carouselImages.length;
 
   useEffect(() => {
+    if (!allLoaded) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % carouselImages.length);
     }, 4000);
     return () => clearInterval(timer);
-  }, []);
+  }, [allLoaded]);
 
   return (
     <section className="relative min-h-screen pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden flex items-center">
@@ -119,24 +132,24 @@ const HeroSection = () => {
             <div className="relative w-full max-w-md">
               {/* Image Carousel */}
               <div className="aspect-square rounded-3xl bg-card border border-border shadow-card-hover overflow-hidden relative">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={currentSlide}
-                    initial={{ opacity: 0, scale: 1.1 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
-                    className="absolute inset-0"
-                  >
-                    <ImageWithSkeleton
-                      src={carouselImages[currentSlide].src}
-                      alt={carouselImages[currentSlide].alt}
-                      className="w-full h-full object-cover"
-                      containerClassName="w-full h-full"
-                      skeletonClassName="rounded-3xl"
-                    />
-                  </motion.div>
-                </AnimatePresence>
+                {/* Preloaded images - all rendered, only active one visible */}
+                {carouselImages.map((image, i) => (
+                  <img
+                    key={image.src}
+                    src={image.src}
+                    alt={image.alt}
+                    className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out"
+                    style={{ opacity: i === currentSlide ? 1 : 0 }}
+                  />
+                ))}
+                {/* Skeleton while images preload */}
+                {!allLoaded && (
+                  <div className="absolute inset-0 animate-pulse bg-muted rounded-3xl flex flex-col items-center justify-center gap-3">
+                    <div className="h-8 w-8 rounded-full bg-muted-foreground/10" />
+                    <div className="h-3 w-3/4 rounded-md bg-muted-foreground/10" />
+                    <div className="h-3 w-1/2 rounded-md bg-muted-foreground/10" />
+                  </div>
+                )}
                 {/* Subtle gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 via-transparent to-transparent" />
                 {/* Dots indicator */}
