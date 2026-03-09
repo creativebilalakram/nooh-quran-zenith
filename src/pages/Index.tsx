@@ -4,6 +4,7 @@ import TrustBar from "@/components/landing/TrustBar";
 import AboutSection from "@/components/landing/AboutSection";
 import CoursesSection from "@/components/landing/CoursesSection";
 import SocialProof from "@/components/landing/SocialProof";
+import TestimonialsSection from "@/components/landing/TestimonialsSection";
 import WhyChooseUs from "@/components/landing/WhyChooseUs";
 import HowItWorks from "@/components/landing/HowItWorks";
 import PricingSection from "@/components/landing/PricingSection";
@@ -21,6 +22,7 @@ const Index = () => {
       <AboutSection />
       <CoursesSection />
       <SocialProof />
+      <TestimonialsSection />
       <WhyChooseUs />
       <HowItWorks />
       <PricingSection />
