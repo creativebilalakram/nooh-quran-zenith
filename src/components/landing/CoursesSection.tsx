@@ -151,13 +151,9 @@ const CoursesSection = () => {
               className="bg-card rounded-2xl border border-border shadow-card-hover w-full max-w-lg max-h-[85vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative h-48 bg-secondary overflow-hidden rounded-t-2xl">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-20 h-20 rounded-2xl bg-card/80 backdrop-blur-sm flex items-center justify-center shadow-lg">
-                    <selected.icon className="text-primary" size={36} />
-                  </div>
-                </div>
+              <div className="relative h-48 overflow-hidden rounded-t-2xl">
+                <img src={selected.image} alt={selected.title} className="w-full h-full object-cover" />
+                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-card to-transparent" />
                 <button
                   onClick={() => setSelected(null)}
                   className="absolute top-4 right-4 w-8 h-8 rounded-full bg-card/80 backdrop-blur-sm flex items-center justify-center hover:bg-card transition-colors"
@@ -167,7 +163,12 @@ const CoursesSection = () => {
               </div>
 
               <div className="p-6 md:p-8">
-                <h3 className="font-display text-2xl font-bold text-foreground mb-3">{selected.title}</h3>
+                <div className="flex justify-center -mt-8 mb-4">
+                  <div className="w-14 h-14 rounded-2xl bg-card border border-border flex items-center justify-center shadow-lg">
+                    <selected.icon className="text-primary" size={28} />
+                  </div>
+                </div>
+                <h3 className="font-display text-2xl font-bold text-foreground mb-3 text-center">{selected.title}</h3>
                 <p className="font-body text-muted-foreground leading-relaxed mb-6">{selected.longDesc}</p>
 
                 <h4 className="font-body text-sm font-semibold text-foreground mb-3 uppercase tracking-wider">What You'll Learn</h4>
