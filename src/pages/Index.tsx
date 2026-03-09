@@ -22,9 +22,9 @@ const Index = () => {
       <AboutSection />
       <CoursesSection />
       <SocialProof />
-      <TestimonialsSection />
       <WhyChooseUs />
       <HowItWorks />
+      <TestimonialsSection />
       <PricingSection />
       <FinalCTA />
       <FAQSection />
