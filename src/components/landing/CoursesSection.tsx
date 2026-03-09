@@ -108,9 +108,9 @@ const CoursesSection = () => {
                 onClick={() => setSelected(course)}
                 className="group cursor-pointer bg-card rounded-2xl border border-border overflow-hidden shadow-card hover:shadow-card-hover hover:-translate-y-2 transition-all duration-500"
               >
-                {/* Thumbnail placeholder */}
-                <div className="relative h-40 bg-secondary overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5" />
+                {/* Course thumbnail */}
+                <div className="relative h-40 overflow-hidden">
+                  <img src={course.image} alt={course.title} className="w-full h-full object-cover" />
                   <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-card to-transparent" />
                 </div>
 
