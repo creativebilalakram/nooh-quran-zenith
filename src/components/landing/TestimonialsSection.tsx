@@ -57,8 +57,8 @@ const TestimonialsSection = () => {
   const isLightboxOpen = lightboxIndex !== null;
 
   return (
-    <section className="py-24 md:py-32 bg-secondary/30 overflow-hidden">
-      <div className="container mx-auto px-4 mb-14">
+    <section className="py-16 md:py-24 bg-secondary/30 overflow-hidden">
+      <div className="container mx-auto px-4 mb-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -70,11 +70,11 @@ const TestimonialsSection = () => {
               <Star key={i} className="text-accent fill-accent" size={20} />
             ))}
           </div>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-4">
-            What Our Students & Parents Say
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-3">
+            Trusted by Students Worldwide
           </h2>
           <p className="font-body text-muted-foreground text-base md:text-lg">
-            Real feedback from our students and parents who are learning Quran with us.
+            Real feedback from learners who are studying Quran with us.
           </p>
         </motion.div>
       </div>
@@ -86,12 +86,12 @@ const TestimonialsSection = () => {
         onMouseLeave={() => setIsPaused(false)}
       >
         {/* Edge fades */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 z-10 bg-gradient-to-r from-secondary/30 to-transparent pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 z-10 bg-gradient-to-l from-secondary/30 to-transparent pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-44 z-10 bg-gradient-to-r from-[hsl(var(--secondary)/0.3)] via-[hsl(var(--secondary)/0.24)] to-transparent pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-44 z-10 bg-gradient-to-l from-[hsl(var(--secondary)/0.3)] via-[hsl(var(--secondary)/0.24)] to-transparent pointer-events-none" />
 
         {/* Scrolling track */}
         <div
-          className="flex gap-8 py-6 px-4"
+          className="flex gap-6 py-4 px-4"
           style={{
             animation: "scrollLeft 45s linear infinite",
             animationPlayState: isPaused || isLightboxOpen ? "paused" : "running",
@@ -102,20 +102,20 @@ const TestimonialsSection = () => {
             <div
               key={i}
               onClick={() => openLightbox(i)}
-              className="w-[260px] sm:w-[280px] md:w-[320px] h-[340px] sm:h-[360px] md:h-[400px] flex-shrink-0 rounded-2xl border border-border/60 bg-card overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_30px_hsl(var(--gold)/0.15)] shadow-card"
+              className="w-[240px] sm:w-[260px] md:w-[290px] h-[280px] sm:h-[300px] md:h-[330px] flex-shrink-0 rounded-xl border border-border/40 bg-card overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_24px_hsl(var(--gold)/0.12)] shadow-[var(--shadow-md)]"
             >
-              <div className="relative w-full h-full bg-card">
+              <div className="relative w-full h-full">
                 <img
                   src={src}
                   alt={`Student review ${(i % images.length) + 1}`}
                   loading="lazy"
                   onLoad={() => handleImageLoad(i)}
-                  className={`w-full h-full object-contain transition-opacity duration-500 ${
+                  className={`w-full h-full object-cover object-top transition-opacity duration-500 ${
                     loadedImages.has(i) ? "opacity-100" : "opacity-0"
                   }`}
                 />
                 {!loadedImages.has(i) && (
-                  <div className="absolute inset-0 animate-pulse rounded-2xl bg-muted flex flex-col items-center justify-center gap-3 p-4">
+                  <div className="absolute inset-0 animate-pulse rounded-xl bg-muted flex flex-col items-center justify-center gap-3 p-4">
                     <div className="h-8 w-8 rounded-full bg-muted-foreground/10" />
                     <div className="h-3 w-3/4 rounded-md bg-muted-foreground/10" />
                     <div className="h-3 w-1/2 rounded-md bg-muted-foreground/10" />
@@ -132,9 +132,9 @@ const TestimonialsSection = () => {
         initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-center mt-14"
+        className="text-center mt-10"
       >
-        <p className="font-body text-muted-foreground mb-4">Want to see more reviews?</p>
+        <p className="font-body text-sm text-muted-foreground mb-3">See more verified reviews on our Facebook page.</p>
         <Button variant="hero" size="lg" asChild>
           <a href={FACEBOOK_REVIEWS_URL} target="_blank" rel="noopener noreferrer">
             View All Reviews on Facebook
