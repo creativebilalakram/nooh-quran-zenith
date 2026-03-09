@@ -57,6 +57,7 @@ const courses = [
     desc: "Learn Arabic language fundamentals to connect with the Quran directly.",
     longDesc: "Learn the Arabic language from scratch or improve your existing skills. This course covers grammar, vocabulary, and conversation skills with a focus on understanding the Quran.",
     learns: ["Learn Arabic grammar (Nahw & Sarf)", "Build practical vocabulary", "Read and understand Arabic texts", "Connect with the Quran in its original language"],
+    image: courseArabic,
   },
   {
     icon: FileText,
