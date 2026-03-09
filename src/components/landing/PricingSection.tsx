@@ -82,7 +82,7 @@ const PricingSection = () => (
                 }`}
               >
                 {plan.popular && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gold-gradient text-accent-foreground font-body text-xs font-bold px-5 py-1.5 rounded-full flex items-center gap-1.5 shadow-gold z-20">
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[image:var(--btn-gradient)] text-primary-foreground font-body text-xs font-bold px-5 py-1.5 rounded-full flex items-center gap-1.5 shadow-[var(--shadow-primary)] z-20">
                     <Star size={12} className="drop-shadow-sm" /> Most Popular
                   </div>
                 )}
