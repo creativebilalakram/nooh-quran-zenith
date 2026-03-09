@@ -163,12 +163,12 @@ const CoursesSection = () => {
               </div>
 
               <div className="p-6 md:p-8">
-                <div className="flex justify-center -mt-8 mb-4">
+                <div className="flex justify-start -mt-8 mb-4">
                   <div className="w-14 h-14 rounded-2xl bg-card border border-border flex items-center justify-center shadow-lg">
                     <selected.icon className="text-primary" size={28} />
                   </div>
                 </div>
-                <h3 className="font-display text-2xl font-bold text-foreground mb-3 text-center">{selected.title}</h3>
+                <h3 className="font-display text-2xl font-bold text-foreground mb-3">{selected.title}</h3>
                 <p className="font-body text-muted-foreground leading-relaxed mb-6">{selected.longDesc}</p>
 
                 <h4 className="font-body text-sm font-semibold text-foreground mb-3 uppercase tracking-wider">What You'll Learn</h4>
