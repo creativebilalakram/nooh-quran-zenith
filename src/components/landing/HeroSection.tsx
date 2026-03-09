@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { CheckCircle, MessageCircle, Play } from "lucide-react";
+import heroBg from "@/assets/hero-bg.webp";
 
 const trustPoints = [
   "3-Day Free Trial — No Card Required",
