@@ -10,6 +10,7 @@ import courseNoraniQaida from "@/assets/course-norani-qaida.webp";
 import courseTafseer from "@/assets/course-tafseer.webp";
 import courseSupplication from "@/assets/course-supplication.webp";
 import { Button } from "@/components/ui/button";
+import ImageWithSkeleton from "@/components/ui/image-skeleton";
 
 const courses = [
   {
@@ -111,7 +112,7 @@ const CoursesSection = () => {
               >
                 {/* Course thumbnail */}
                 <div className="relative h-40 overflow-hidden">
-                  <img src={course.image} alt={course.title} className="w-full h-full object-cover" />
+                  <ImageWithSkeleton src={course.image} alt={course.title} className="w-full h-full object-cover" containerClassName="w-full h-full" />
                   <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-card to-transparent" />
                 </div>
 
@@ -152,7 +153,7 @@ const CoursesSection = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="relative h-56 overflow-hidden rounded-t-2xl">
-                <img src={selected.image} alt={selected.title} className="w-full h-full object-cover" />
+                <ImageWithSkeleton src={selected.image} alt={selected.title} className="w-full h-full object-cover" containerClassName="w-full h-full" skeletonClassName="rounded-t-2xl" />
                 <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-card to-transparent" />
                 <button
                   onClick={() => setSelected(null)}

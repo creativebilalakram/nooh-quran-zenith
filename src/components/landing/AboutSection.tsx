@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { BookOpen, Globe, Heart } from "lucide-react";
 import aboutQuran from "@/assets/about-quran.png";
+import ImageWithSkeleton from "@/components/ui/image-skeleton";
 
 const AboutSection = () => (
   <section id="about" className="py-28 bg-background relative overflow-hidden">
@@ -16,7 +17,7 @@ const AboutSection = () => (
         >
           <div className="relative">
             <div className="w-full aspect-[4/3] rounded-3xl bg-secondary border border-border shadow-card overflow-hidden">
-              <img src={aboutQuran} alt="Child reading Quran" className="w-full h-full object-cover" />
+              <ImageWithSkeleton src={aboutQuran} alt="Child reading Quran" className="w-full h-full object-cover" containerClassName="w-full h-full" skeletonClassName="rounded-3xl" />
             </div>
             <motion.div
               animate={{ y: [0, -6, 0] }}

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, CheckCircle2 } from "lucide-react";
 import whatsappImg from "@/assets/whatsapp-3d.png";
 import qrCode from "@/assets/community-qr.png";
+import ImageWithSkeleton from "@/components/ui/image-skeleton";
 
 const trustItems = ["Free Trial Available", "One-on-One Classes", "Flexible Schedule"];
 
@@ -37,7 +38,7 @@ const FinalCTA = () => (
             <div className="relative flex flex-col items-center">
               <div className="relative w-28 h-28 mb-4 flex items-center justify-center">
                 <div className="absolute inset-0 scale-150 rounded-full bg-[hsl(142,70%,40%)]/[0.07] blur-2xl" />
-                <img src={whatsappImg} alt="WhatsApp" className="relative w-full h-full object-contain drop-shadow-xl" />
+                <ImageWithSkeleton src={whatsappImg} alt="WhatsApp" className="relative w-full h-full object-contain drop-shadow-xl" containerClassName="w-full h-full" />
               </div>
               <p className="font-body text-[13px] text-primary-foreground/45 tracking-wide">
                 Chat with us instantly
@@ -96,7 +97,7 @@ const FinalCTA = () => (
               <div className="relative w-28 h-28 mb-3">
                 <div className="absolute -inset-2 rounded-xl bg-accent/[0.05] blur-md" />
                 <div className="relative bg-primary-foreground rounded-lg p-1.5 shadow-md">
-                  <img src={qrCode} alt="Community QR Code" className="w-full h-full" />
+                  <ImageWithSkeleton src={qrCode} alt="Community QR Code" className="w-full h-full" containerClassName="w-full h-full" />
                 </div>
               </div>
               <p className="font-body text-[10px] text-primary-foreground/30 uppercase tracking-[0.15em]">

@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import heroBg from "@/assets/hero-bg.webp";
 import heroStudent1 from "@/assets/hero-student-1.jpg";
 import heroStudent2 from "@/assets/hero-student-2.jpg";
+import ImageWithSkeleton from "@/components/ui/image-skeleton";
 
 const trustPoints = [
   "3-Day Free Trial — No Card Required",
@@ -31,7 +32,7 @@ const HeroSection = () => {
     <section className="relative min-h-screen pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden flex items-center">
       {/* Background image - rendered first */}
       <div className="absolute inset-0 z-0">
-        <img src={heroBg} alt="" className="w-full h-full object-cover" />
+        <ImageWithSkeleton src={heroBg} alt="" className="w-full h-full object-cover" containerClassName="w-full h-full" />
       </div>
 
       {/* Gradient overlay with transparency so bg shows through */}
@@ -119,16 +120,22 @@ const HeroSection = () => {
               {/* Image Carousel */}
               <div className="aspect-square rounded-3xl bg-card border border-border shadow-card-hover overflow-hidden relative">
                 <AnimatePresence mode="wait">
-                  <motion.img
+                  <motion.div
                     key={currentSlide}
-                    src={carouselImages[currentSlide].src}
-                    alt={carouselImages[currentSlide].alt}
                     initial={{ opacity: 0, scale: 1.1 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
+                    className="absolute inset-0"
+                  >
+                    <ImageWithSkeleton
+                      src={carouselImages[currentSlide].src}
+                      alt={carouselImages[currentSlide].alt}
+                      className="w-full h-full object-cover"
+                      containerClassName="w-full h-full"
+                      skeletonClassName="rounded-3xl"
+                    />
+                  </motion.div>
                 </AnimatePresence>
                 {/* Subtle gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 via-transparent to-transparent" />
