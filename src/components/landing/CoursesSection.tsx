@@ -41,6 +41,7 @@ const courses = [
     desc: "Understand the meanings of the Quran with word-by-word translation.",
     longDesc: "Go beyond reading — understand what Allah is saying. This course provides word-by-word translation and contextual meaning of Quranic verses to deepen your connection with the Quran.",
     learns: ["Understand word-by-word Quran translation", "Learn key Arabic vocabulary from the Quran", "Connect deeply with the Quran's message", "Study Tafseer-based contextual meanings"],
+    image: courseTranslation,
   },
   {
     icon: BookMarked,
