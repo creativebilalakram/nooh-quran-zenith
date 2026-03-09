@@ -17,6 +17,7 @@ const courses = [
     title: "Quran Reading",
     desc: "Learn to read the Quran fluently with proper pronunciation and confidence.",
     longDesc: "Our Quran Reading course is designed for students at every level. Whether you're a complete beginner or looking to improve fluency, our certified teachers guide you step-by-step through the Arabic script, pronunciation rules, and reading flow.",
+    learns: ["Read Arabic letters and words accurately", "Build fluency in Quran recitation", "Develop proper pronunciation (Makharij)", "Read independently with confidence"],
     image: courseQuranReading,
   },
   {
