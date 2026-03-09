@@ -160,13 +160,15 @@ const CoursesSection = () => {
                 >
                   <X size={16} className="text-foreground" />
                 </button>
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-14 h-14 rounded-2xl bg-card/90 backdrop-blur-sm border border-border flex items-center justify-center shadow-lg">
-                  <selected.icon className="text-primary" size={28} />
-                </div>
               </div>
 
-              <div className="p-6 md:p-8 pt-10 md:pt-12">
-                <h3 className="font-display text-2xl font-bold text-foreground mb-3">{selected.title}</h3>
+              <div className="p-6 md:p-8">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-11 h-11 rounded-xl bg-secondary flex items-center justify-center shrink-0">
+                    <selected.icon className="text-primary" size={22} />
+                  </div>
+                  <h3 className="font-display text-2xl font-bold text-foreground">{selected.title}</h3>
+                </div>
                 <p className="font-body text-muted-foreground leading-relaxed mb-6">{selected.longDesc}</p>
 
                 <h4 className="font-body text-sm font-semibold text-foreground mb-3 uppercase tracking-wider">What You'll Learn</h4>
