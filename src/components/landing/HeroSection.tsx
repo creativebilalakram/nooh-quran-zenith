@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { CheckCircle, MessageCircle, Play } from "lucide-react";
+import heroBg from "@/assets/hero-bg.webp";
 
 const trustPoints = [
   "3-Day Free Trial — No Card Required",
@@ -10,9 +11,10 @@ const trustPoints = [
 
 const HeroSection = () => {
   return (
-    <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
-      {/* Animated gradient background */}
+    <section className="relative min-h-screen pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden flex items-center">
+      {/* Background image */}
       <div className="absolute inset-0">
+        <img src={heroBg} alt="" className="w-full h-full object-cover opacity-45" />
         <motion.div
           animate={{
             background: [
