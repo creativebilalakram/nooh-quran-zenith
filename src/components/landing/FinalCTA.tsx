@@ -8,7 +8,6 @@ const trustItems = ["Free Trial Available", "One-on-One Classes", "Flexible Sche
 
 const FinalCTA = () => (
   <section className="py-28 md:py-36 bg-cta-gradient relative overflow-hidden">
-    {/* Animated background */}
     <motion.div
       className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-primary-foreground/[0.02] blur-[120px]"
       animate={{ scale: [1, 1.15, 1] }}
@@ -24,28 +23,28 @@ const FinalCTA = () => (
 
     <div className="container mx-auto px-4 relative">
       <div className="grid lg:grid-cols-[1fr_1.8fr_1fr] gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
-        
-        {/* Left — WhatsApp */}
+
+        {/* Left — WhatsApp Card */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="flex flex-col items-center gap-5"
+          className="flex justify-center"
         >
-          <div className="relative">
-            <div className="absolute inset-0 scale-150 rounded-full bg-[hsl(142,70%,40%)]/[0.08] blur-3xl" />
-            <motion.img
-              src={whatsappImg}
-              alt="WhatsApp"
-              className="relative w-36 h-36 object-contain drop-shadow-2xl"
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            />
+          <div className="relative bg-primary-foreground/[0.05] backdrop-blur-sm border border-primary-foreground/[0.08] rounded-3xl p-7 text-center w-full max-w-[220px]">
+            <div className="relative mx-auto w-28 h-28 mb-4 flex items-center justify-center">
+              <div className="absolute inset-0 scale-[1.6] rounded-full bg-[hsl(142,70%,40%)]/[0.06] blur-2xl" />
+              <img
+                src={whatsappImg}
+                alt="WhatsApp"
+                className="relative w-full h-full object-contain drop-shadow-xl"
+              />
+            </div>
+            <p className="font-body text-sm text-primary-foreground/45 tracking-wider">
+              Chat with us instantly
+            </p>
           </div>
-          <p className="font-body text-sm text-primary-foreground/40 tracking-wider">
-            Chat with us instantly
-          </p>
         </motion.div>
 
         {/* Center — Main CTA */}
@@ -90,24 +89,24 @@ const FinalCTA = () => (
           transition={{ duration: 0.7, delay: 0.2 }}
           className="flex justify-center"
         >
-          <div className="relative bg-primary-foreground/[0.05] backdrop-blur-sm border border-primary-foreground/[0.08] rounded-3xl p-8 text-center max-w-[250px]">
-            <h3 className="font-display text-lg font-bold text-primary-foreground mb-2">
+          <div className="relative bg-primary-foreground/[0.05] backdrop-blur-sm border border-primary-foreground/[0.08] rounded-3xl p-7 text-center w-full max-w-[220px]">
+            <h3 className="font-display text-base font-bold text-primary-foreground mb-1.5">
               Join Our Free Community
             </h3>
-            <p className="font-body text-xs text-primary-foreground/40 mb-6 leading-relaxed">
-              Scan the QR code to join our learning community and stay connected.
+            <p className="font-body text-[11px] text-primary-foreground/40 mb-5 leading-relaxed">
+              Scan to join our learning community and stay connected.
             </p>
 
-            <div className="relative mx-auto w-36 h-36 mb-5">
-              <div className="absolute -inset-3 rounded-2xl bg-accent/[0.06] blur-lg" />
+            <div className="relative mx-auto w-32 h-32 mb-4">
+              <div className="absolute -inset-2 rounded-2xl bg-accent/[0.05] blur-md" />
               <div
-                className="absolute -inset-5 opacity-[0.06] pointer-events-none rounded-2xl"
+                className="absolute -inset-4 opacity-[0.05] pointer-events-none rounded-2xl"
                 style={{
                   backgroundImage: "radial-gradient(circle, hsl(var(--primary-foreground)) 1px, transparent 1px)",
                   backgroundSize: "7px 7px",
                 }}
               />
-              <div className="relative bg-primary-foreground rounded-xl p-2.5 shadow-md">
+              <div className="relative bg-primary-foreground rounded-xl p-2 shadow-md">
                 <img src={qrCode} alt="Community QR Code" className="w-full h-full" />
               </div>
             </div>
