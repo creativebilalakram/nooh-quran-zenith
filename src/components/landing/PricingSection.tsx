@@ -65,7 +65,7 @@ const PricingSection = () => (
                   <motion.div
                     className="absolute w-[200%] h-[200%] top-[-50%] left-[-50%]"
                     style={{
-                      background: `conic-gradient(from 0deg, transparent 0%, transparent 70%, hsl(var(--accent)) 80%, hsl(var(--gold)) 90%, transparent 100%)`,
+                      background: `conic-gradient(from 0deg, transparent 0%, transparent 70%, hsl(var(--primary)) 80%, hsl(217 91% 60%) 90%, transparent 100%)`,
                     }}
                     animate={{ rotate: 360 }}
                     transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
