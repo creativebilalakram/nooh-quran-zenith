@@ -49,6 +49,7 @@ const courses = [
     desc: "Deep dive into the interpretation and context of Quranic verses.",
     longDesc: "Explore the depth and wisdom of the Quran through detailed Tafseer. Understand the historical context, reasons for revelation, and scholarly interpretations of each Surah.",
     learns: ["Study classical and modern Tafseer", "Understand Asbab al-Nuzul (reasons of revelation)", "Explore scholarly interpretations", "Apply Quranic wisdom to daily life"],
+    image: courseTafseer,
   },
   {
     icon: GraduationCap,
