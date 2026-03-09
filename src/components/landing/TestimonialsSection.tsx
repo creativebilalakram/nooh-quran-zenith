@@ -29,7 +29,6 @@ const TestimonialsSection = () => {
   };
 
   const openLightbox = (index: number) => {
-    // Map duplicated index back to original
     setLightboxIndex(index % images.length);
   };
 
@@ -102,20 +101,20 @@ const TestimonialsSection = () => {
             <div
               key={i}
               onClick={() => openLightbox(i)}
-              className="w-[240px] sm:w-[260px] md:w-[290px] h-[280px] sm:h-[300px] md:h-[330px] flex-shrink-0 rounded-xl border border-border/40 bg-card overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_24px_hsl(var(--gold)/0.12)] shadow-[var(--shadow-md)]"
+              className="w-[260px] sm:w-[280px] md:w-[320px] flex-shrink-0 rounded-2xl border border-border/60 bg-card overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_24px_hsl(var(--gold)/0.12)] shadow-[var(--shadow-md)]"
             >
-              <div className="relative w-full h-full">
+              <div className="relative w-full">
                 <img
                   src={src}
                   alt={`Student review ${(i % images.length) + 1}`}
                   loading="lazy"
                   onLoad={() => handleImageLoad(i)}
-                  className={`w-full h-full object-cover object-top transition-opacity duration-500 ${
+                  className={`w-full h-auto object-contain transition-opacity duration-500 ${
                     loadedImages.has(i) ? "opacity-100" : "opacity-0"
                   }`}
                 />
                 {!loadedImages.has(i) && (
-                  <div className="absolute inset-0 animate-pulse rounded-xl bg-muted flex flex-col items-center justify-center gap-3 p-4">
+                  <div className="absolute inset-0 animate-pulse rounded-2xl bg-muted flex flex-col items-center justify-center gap-3 p-4 min-h-[280px]">
                     <div className="h-8 w-8 rounded-full bg-muted-foreground/10" />
                     <div className="h-3 w-3/4 rounded-md bg-muted-foreground/10" />
                     <div className="h-3 w-1/2 rounded-md bg-muted-foreground/10" />
@@ -158,35 +157,37 @@ const TestimonialsSection = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.92, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative max-w-lg w-full max-h-[85vh]"
+              className="relative flex items-center gap-4 max-w-2xl w-full"
               onClick={(e) => e.stopPropagation()}
             >
-              <img
-                src={images[lightboxIndex]}
-                alt={`Review ${lightboxIndex + 1}`}
-                className="w-full h-auto rounded-2xl shadow-lg object-contain"
-              />
-
-              {/* Close */}
-              <button
-                onClick={closeLightbox}
-                className="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center shadow-card hover:bg-muted transition-colors"
-              >
-                <X size={18} className="text-foreground" />
-              </button>
-
-              {/* Prev */}
+              {/* Prev - outside image */}
               <button
                 onClick={() => navigate(-1)}
-                className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-card/80 backdrop-blur-sm border border-border flex items-center justify-center shadow-card hover:bg-card transition-colors"
+                className="flex-shrink-0 w-11 h-11 rounded-full bg-card border border-border flex items-center justify-center shadow-card hover:bg-muted transition-colors"
               >
                 <ChevronLeft size={20} className="text-foreground" />
               </button>
 
-              {/* Next */}
+              {/* Image container */}
+              <div className="relative flex-1 min-w-0">
+                <img
+                  src={images[lightboxIndex]}
+                  alt={`Review ${lightboxIndex + 1}`}
+                  className="w-full h-auto rounded-2xl shadow-lg object-contain bg-card"
+                />
+                {/* Close - corner of container */}
+                <button
+                  onClick={closeLightbox}
+                  className="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center shadow-card hover:bg-muted transition-colors"
+                >
+                  <X size={18} className="text-foreground" />
+                </button>
+              </div>
+
+              {/* Next - outside image */}
               <button
                 onClick={() => navigate(1)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-card/80 backdrop-blur-sm border border-border flex items-center justify-center shadow-card hover:bg-card transition-colors"
+                className="flex-shrink-0 w-11 h-11 rounded-full bg-card border border-border flex items-center justify-center shadow-card hover:bg-muted transition-colors"
               >
                 <ChevronRight size={20} className="text-foreground" />
               </button>
