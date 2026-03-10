@@ -15,7 +15,7 @@ const FinalCTA = () => (
       transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
     />
     <div
-      className="absolute inset-0 opacity-[0.06]"
+      className="absolute inset-0 z-[1] opacity-80"
       style={{
         backgroundImage: "url(/images/islamic-pattern.png)",
         backgroundSize: "600px",
@@ -23,7 +23,7 @@ const FinalCTA = () => (
       }}
     />
 
-    <div className="container mx-auto px-4 relative">
+    <div className="container mx-auto px-4 relative z-[2]">
       <div className="grid lg:grid-cols-[240px_1fr_240px] gap-6 lg:gap-10 items-stretch">
 
         {/* Left — WhatsApp */}
