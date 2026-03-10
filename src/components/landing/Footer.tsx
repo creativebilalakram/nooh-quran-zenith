@@ -1,4 +1,5 @@
 import { MessageCircle, Mail, MapPin } from "lucide-react";
+import logoSvg from "@/assets/logo.svg";
 
 const Footer = () => (
   <footer className="py-14 bg-foreground">
