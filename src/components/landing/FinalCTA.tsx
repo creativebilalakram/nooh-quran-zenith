@@ -15,10 +15,11 @@ const FinalCTA = () => (
       transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
     />
     <div
-      className="absolute inset-0 opacity-[0.015]"
+      className="absolute inset-0 opacity-[0.06]"
       style={{
-        backgroundImage: "radial-gradient(circle at 1px 1px, hsl(var(--primary-foreground)) 1px, transparent 0)",
-        backgroundSize: "40px 40px",
+        backgroundImage: "url(/images/islamic-pattern.png)",
+        backgroundSize: "600px",
+        backgroundRepeat: "repeat",
       }}
     />
 
