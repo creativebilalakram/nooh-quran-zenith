@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { scrollToPricing } from "@/lib/whatsapp";
 import { BookOpen, Mic, Brain, Languages, BookMarked, GraduationCap, FileText, Sparkles, ArrowRight, Check, X } from "lucide-react";
 import courseQuranReading from "@/assets/course-quran-reading.webp";
 import courseTajweed from "@/assets/course-tajweed.webp";
