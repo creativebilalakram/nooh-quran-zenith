@@ -6,9 +6,7 @@ const Footer = () => (
     <div className="container mx-auto px-4">
       <div className="grid md:grid-cols-3 gap-8 items-center">
         <div>
-          <p className="font-display text-xl font-bold text-background mb-2">
-            Nooh's <span className="text-accent">Quran</span> Learning
-          </p>
+          <img src={logoSvg} alt="Nooh's Quran Learning" className="h-12 brightness-0 invert mb-2" />
           <p className="font-body text-sm text-background/40">
             Premium online Quran education for students worldwide.
           </p>

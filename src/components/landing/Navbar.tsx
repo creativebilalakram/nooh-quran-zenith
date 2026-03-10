@@ -31,8 +31,8 @@ const Navbar = () => {
         }`}
       >
         <div className="flex items-center justify-between h-16 px-4">
-          <a href="#" className="font-display text-xl font-bold text-primary">
-            Nooh's <span className="text-accent">Quran</span> Learning
+          <a href="#" className="flex items-center">
+            <img src={logoSvg} alt="Nooh's Quran Learning" className="h-10" />
           </a>
           <div className="hidden md:flex items-center gap-8">
             {links.map((l) => (
