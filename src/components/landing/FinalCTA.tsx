@@ -15,7 +15,7 @@ const FinalCTA = () => (
       transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
     />
     <div
-      className="absolute inset-0 opacity-[0.06]"
+      className="absolute inset-0 z-[1] opacity-80"
       style={{
         backgroundImage: "url(/images/islamic-pattern.png)",
         backgroundSize: "600px",
