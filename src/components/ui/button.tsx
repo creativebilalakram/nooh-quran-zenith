@@ -9,16 +9,16 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 btn-sweep",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-[image:var(--btn-gradient)] text-primary-foreground shadow-[var(--shadow-primary)] hover:shadow-xl hover:-translate-y-0.5 font-semibold btn-sweep",
+        hero: "bg-[image:var(--btn-gradient)] text-primary-foreground shadow-[var(--shadow-primary)] hover:shadow-xl hover:-translate-y-0.5 font-semibold",
         heroOutline: "border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold",
-        gold: "bg-gold-gradient text-primary-foreground shadow-gold hover:shadow-lg hover:-translate-y-0.5 font-semibold btn-sweep",
-        whatsapp: "bg-[hsl(142,70%,40%)] text-[hsl(0,0%,100%)] hover:bg-[hsl(142,70%,35%)] shadow-lg hover:shadow-xl hover:-translate-y-0.5 font-semibold btn-sweep",
+        gold: "bg-gold-gradient text-primary-foreground shadow-gold hover:shadow-lg hover:-translate-y-0.5 font-semibold",
+        whatsapp: "bg-[hsl(142,70%,40%)] text-[hsl(0,0%,100%)] hover:bg-[hsl(142,70%,35%)] shadow-lg hover:shadow-xl hover:-translate-y-0.5 font-semibold",
       },
       size: {
         default: "h-10 px-4 py-2",
@@ -41,24 +41,43 @@ export interface ButtonProps
   asChild?: boolean;
 }
 
+const SWEEP_VARIANTS = new Set(["hero", "gold", "whatsapp", "default"]);
+
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, children, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button";
-    const hasSweep = !asChild && (variant === "hero" || variant === "gold" || variant === "whatsapp" || variant === "default");
+    if (asChild) {
+      return (
+        <Slot
+          className={cn(buttonVariants({ variant, size, className }))}
+          ref={ref as React.Ref<HTMLElement>}
+          {...props}
+        >
+          {children}
+        </Slot>
+      );
+    }
+
+    const hasSweep = SWEEP_VARIANTS.has(variant || "default");
+
     return (
-      <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props}>
+      <button
+        className={cn(buttonVariants({ variant, size, className }))}
+        ref={ref}
+        {...props}
+      >
         {hasSweep && (
           <span
             className="pointer-events-none absolute inset-0"
             style={{
-              background: "linear-gradient(90deg, transparent 0%, hsla(0,0%,100%,0.15) 50%, transparent 100%)",
+              background:
+                "linear-gradient(90deg, transparent 0%, hsla(0,0%,100%,0.15) 50%, transparent 100%)",
               animation: "lightSweep 4s ease-in-out infinite",
               width: "40%",
             }}
           />
         )}
         {children}
-      </Comp>
+      </button>
     );
   },
 );
