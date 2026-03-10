@@ -61,7 +61,8 @@ const ContactForm = () => (
                 </div>
                 <div>
                   <p className="font-body text-xs text-primary-foreground/50 uppercase tracking-wider">WhatsApp</p>
-                  <p className="font-body text-sm text-primary-foreground font-medium">+1 234 567 890</p>
+                  <p className="font-body text-sm text-primary-foreground font-medium">+1 825 595 4870</p>
+                  <p className="font-body text-xs text-primary-foreground/60">PK: +92 310 710 3142</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -70,7 +71,7 @@ const ContactForm = () => (
                 </div>
                 <div>
                   <p className="font-body text-xs text-primary-foreground/50 uppercase tracking-wider">Email</p>
-                  <p className="font-body text-sm text-primary-foreground font-medium">info@example.com</p>
+                  <p className="font-body text-sm text-primary-foreground font-medium">sarwarhafizusman83@gmail.com</p>
                 </div>
               </div>
             </div>

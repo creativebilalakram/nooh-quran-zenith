@@ -14,8 +14,8 @@ const Footer = () => (
         </div>
         <div className="flex flex-col gap-2">
           {[
-            { icon: Mail, text: "info@noohquran.com" },
-            { icon: MessageCircle, text: "WhatsApp Support" },
+            { icon: Mail, text: "sarwarhafizusman83@gmail.com" },
+            { icon: MessageCircle, text: "+1 825 595 4870 | PK: +92 310 710 3142" },
             { icon: MapPin, text: "Available Worldwide" },
           ].map(({ icon: Icon, text }) => (
             <div key={text} className="flex items-center gap-2.5">
