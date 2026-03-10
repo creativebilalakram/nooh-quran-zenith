@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle, MessageCircle, Play } from "lucide-react";
 import { useState, useEffect } from "react";
+import { scrollToPricing, openWhatsAppGeneral } from "@/lib/whatsapp";
 import heroBg from "@/assets/hero-bg.webp";
 import heroStudent1 from "@/assets/hero-student-1.jpg";
 import heroStudent2 from "@/assets/hero-student-2.jpg";
