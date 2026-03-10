@@ -42,7 +42,7 @@ const Navbar = () => {
                   {l}
                 </a>
               ))}
-              <Button variant="hero" size="sm">Start Free Trial</Button>
+              <Button variant="hero" size="sm" onClick={scrollToPricing}>Start Free Trial</Button>
             </div>
             <button className="md:hidden text-foreground" onClick={() => setOpen(!open)}>
               {open ? <X size={24} /> : <Menu size={24} />}
