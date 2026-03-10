@@ -10,8 +10,8 @@ const stats = [
 
 const SocialProof = () => (
   <section className="py-28 bg-[image:var(--stats-gradient)] animate-gradient-shift relative overflow-hidden">
-    {/* Islamic geometric pattern */}
-    <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'url(/images/islamic-pattern.png)', backgroundSize: '600px', backgroundRepeat: 'repeat' }} />
+    {/* Islamic geometric pattern - on top of gradient */}
+    <div className="absolute inset-0 z-[1] opacity-80" style={{ backgroundImage: 'url(/images/islamic-pattern.png)', backgroundSize: '600px', backgroundRepeat: 'repeat' }} />
     {/* Radial glow */}
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[hsl(217,91%,60%)]/[0.08] blur-[150px]" />
 
