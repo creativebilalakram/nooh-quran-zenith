@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import logoSvg from "@/assets/logo.svg";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
