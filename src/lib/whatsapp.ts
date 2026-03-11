@@ -22,7 +22,17 @@ export const openWhatsAppGeneral = () => {
 
 export const openWhatsAppWithBooking = (userId: string, name: string, plan: string) => {
   const msg = encodeURIComponent(
-    `Assalamu Alaikum,\n\nI have just booked a free Quran trial class.\n\nUser ID: ${userId}\nName: ${name}\nSelected Plan: ${plan}\n\nPlease guide me about the next steps.\n\nJazakAllah Khair`
+    `Assalamu Alaikum,
+
+My name is *${name}*.
+
+I have just booked a **Free Quran Trial Class** from your website and I would like to begin learning with the *${plan} Plan*.
+
+My *User ID* is: *${userId}*
+
+Please guide me about the next steps and available class timings.
+
+JazakAllah Khair`
   );
   window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, "_blank");
 };
