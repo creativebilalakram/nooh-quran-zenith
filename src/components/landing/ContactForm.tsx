@@ -178,9 +178,9 @@ const ContactForm = () => {
                     <SelectValue placeholder="Choose a plan" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="Basic">Basic — $35/month</SelectItem>
-                    <SelectItem value="Standard">Standard — $60/month</SelectItem>
-                    <SelectItem value="Premium">Premium — $90/month</SelectItem>
+                    <SelectItem value="Basic">Basic — $60/month</SelectItem>
+                    <SelectItem value="Standard">Standard — $120/month</SelectItem>
+                    <SelectItem value="Premium">Premium — $200/month</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
