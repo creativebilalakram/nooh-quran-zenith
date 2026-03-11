@@ -28,16 +28,47 @@ const ContactForm = () => {
   const [whatsapp, setWhatsapp] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!name.trim() || !email.trim() || !selectedPlan) {
-      toast.error("Please fill in your name, email, and select a plan.");
-      return;
-    }
-    const userId = generateUserId();
-    toast.success(`Booking confirmed! Your ID: ${userId}`);
-    openWhatsAppWithBooking(userId, name.trim(), selectedPlan);
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  if (!name.trim() || !email.trim() || !selectedPlan) {
+    toast.error("Please fill in your name, email, and select a plan.");
+    return;
+  }
+
+  const userId = generateUserId();
+
+  const data = {
+    userId: userId,
+    name: name.trim(),
+    email: email.trim(),
+    whatsapp: whatsapp.trim(),
+    plan: selectedPlan,
+    message: message.trim(),
+    source: "Landing Page",
+    sourceUrl: window.location.href,
+    device: navigator.userAgent,
+    country: ""
   };
+
+  try {
+
+    await fetch("https://script.google.com/macros/s/AKfycbz36cosyOrk3ty_H7KbXWLee1uTqzew7um3iZDZhHQ2m8YhKL5pcwfzWAK2rJnckc5Y/exec", {
+      method: "POST",
+      body: JSON.stringify(data)
+    });
+
+    toast.success(`Booking confirmed! Your ID: ${userId}`);
+
+    openWhatsAppWithBooking(userId, name.trim(), selectedPlan);
+
+  } catch (error) {
+
+    console.error("Sheet error:", error);
+    toast.error("Something went wrong. Please try again.");
+
+  }
+};
 
   return (
     <section id="book-trial" className="py-28 bg-muted/30 relative overflow-hidden">
