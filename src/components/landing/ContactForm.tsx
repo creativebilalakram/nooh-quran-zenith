@@ -58,10 +58,10 @@ const ContactForm = () => {
       "https://script.google.com/macros/s/AKfycbwJBRMWhuHprklJSOJ3-hA3wrDy1e8b3ad6vS7QwwIbi7YV8I11XwHGh5KrgHM3y1ba/exec",
       {
         method: "POST",
-       method:"POST",
-  mode:"no-cors",
-  body: JSON.stringify(data)
-});
+        mode: "no-cors",
+        body: JSON.stringify(data),
+      }
+    );
 
     toast.success(`Booking confirmed! Your ID: ${userId}`);
 
