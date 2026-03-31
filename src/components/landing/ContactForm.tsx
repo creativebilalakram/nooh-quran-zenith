@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Shield, Clock, HeartHandshake, MessageCircle, Mail, CalendarCheck, User, BookOpen } from "lucide-react";
 import { usePlan } from "@/context/PlanContext";
 import { generateUserId, openWhatsAppWithBooking } from "@/lib/whatsapp";
+import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
 const guarantees = [
