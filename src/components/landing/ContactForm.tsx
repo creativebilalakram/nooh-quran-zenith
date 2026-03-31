@@ -53,7 +53,7 @@ const ContactForm = () => {
   };
 
   try {
-
+    // Save to Google Sheets
     await fetch(
       "https://script.google.com/macros/s/AKfycbwJBRMWhuHprklJSOJ3-hA3wrDy1e8b3ad6vS7QwwIbi7YV8I11XwHGh5KrgHM3y1ba/exec",
       {
@@ -63,16 +63,29 @@ const ContactForm = () => {
       }
     );
 
-    toast.success(`Booking confirmed! Your ID: ${userId}`);
+    // Send confirmation email via Resend
+    try {
+      await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          plan: selectedPlan,
+          whatsapp: whatsapp.trim(),
+          message: message.trim(),
+        }),
+      });
+    } catch (emailErr) {
+      console.error("Email notification failed:", emailErr);
+    }
 
+    toast.success(`Booking confirmed! Your ID: ${userId}`);
     openWhatsAppWithBooking(userId, name.trim(), selectedPlan);
 
   } catch (err) {
-
     console.error("Error sending data:", err);
-
     toast.error("Something went wrong. Please try again.");
-
   }
 
 };
