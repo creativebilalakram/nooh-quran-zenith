@@ -44,6 +44,7 @@ function buildUserEmailHTML(name: string, plan: string, whatsapp: string, messag
         </td></tr>
         <tr><td style="background:#f8f9fc;padding:20px 40px;border-top:1px solid #e8ecf4;text-align:center;">
           <p style="margin:0;font-size:12px;color:#9ca3af;">Nooh Quran Academy — Learn Quran with Expert Guidance</p>
+          <p style="margin:6px 0 0;font-size:11px;color:#b0b8c9;">Powered by <a href="https://creativebilal.com" style="color:#2d4a9e;text-decoration:none;">Creative Bilal</a></p>
         </td></tr>
       </table>
     </td></tr>
