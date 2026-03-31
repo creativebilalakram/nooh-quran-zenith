@@ -180,7 +180,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       },
       body: JSON.stringify({
         from: "Nooh Quran Academy <info@noohquran.creativebilal.com>",
-        to: ["sarwarhafizusman83@gmail.com"],
+        to: ["creativebilalakram@gmail.com"],
         subject: `New Booking: ${name} — ${plan}`,
         html,
       }),
