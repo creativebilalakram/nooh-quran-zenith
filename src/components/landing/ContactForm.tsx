@@ -28,67 +28,48 @@ const ContactForm = () => {
   const [email, setEmail] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
   const [message, setMessage] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
 
-  e.preventDefault();
-
-  if (!name.trim() || !email.trim() || !selectedPlan) {
-    toast.error("Please fill in your name, email, and select a plan.");
-    return;
-  }
-
-  const userId = generateUserId();
-
-  const data = {
-    userId: userId,
-    name: name.trim(),
-    email: email.trim(),
-    whatsapp: whatsapp.trim(),
-    plan: selectedPlan,
-    message: message.trim(),
-    source: "Landing Page",
-    sourceUrl: window.location.href,
-    device: navigator.userAgent,
-    country: ""
-  };
-
-  try {
-    // Save to Google Sheets
-    await fetch(
-      "https://script.google.com/macros/s/AKfycbwJBRMWhuHprklJSOJ3-hA3wrDy1e8b3ad6vS7QwwIbi7YV8I11XwHGh5KrgHM3y1ba/exec",
-      {
-        method: "POST",
-        mode: "no-cors",
-        body: JSON.stringify(data),
-      }
-    );
-
-    // Send confirmation email via Edge Function
-    try {
-      const { error } = await supabase.functions.invoke('send-email', {
-        body: {
-          name: name.trim(),
-          email: email.trim(),
-          plan: selectedPlan,
-          whatsapp: whatsapp.trim(),
-          message: message.trim(),
-        },
-      });
-      if (error) console.error("Email notification failed:", error);
-    } catch (emailErr) {
-      console.error("Email notification failed:", emailErr);
+    if (!name.trim() || !email.trim() || !selectedPlan) {
+      toast.error("Please fill in your name, email, and select a plan.");
+      return;
     }
 
-    toast.success(`Booking confirmed! Your ID: ${userId}`);
-    openWhatsAppWithBooking(userId, name.trim(), selectedPlan);
+    setSubmitting(true);
+    const userId = generateUserId();
+    const trimmedName = name.trim();
+    const trimmedPlan = selectedPlan;
 
-  } catch (err) {
-    console.error("Error sending data:", err);
-    toast.error("Something went wrong. Please try again.");
-  }
+    const data = {
+      userId, name: trimmedName, email: email.trim(), whatsapp: whatsapp.trim(),
+      plan: trimmedPlan, message: message.trim(), source: "Landing Page",
+      sourceUrl: window.location.href, device: navigator.userAgent, country: ""
+    };
 
-};
+    // Clear form instantly
+    setName(""); setEmail(""); setWhatsapp(""); setMessage(""); setSelectedPlan("");
+    toast.success("JazakAllahu Khairan! We'll be in touch shortly.");
+
+    try {
+      // Fire network calls in background
+      fetch("https://script.google.com/macros/s/AKfycbwJBRMWhuHprklJSOJ3-hA3wrDy1e8b3ad6vS7QwwIbi7YV8I11XwHGh5KrgHM3y1ba/exec", {
+        method: "POST", mode: "no-cors", body: JSON.stringify(data),
+      }).catch(() => {});
+
+      supabase.functions.invoke('send-email', {
+        body: { name: trimmedName, email: data.email, plan: trimmedPlan, whatsapp: data.whatsapp, message: data.message },
+      }).catch((err) => console.error("Email notification failed:", err));
+
+      openWhatsAppWithBooking(userId, trimmedName, trimmedPlan);
+    } catch (err) {
+      console.error("Error:", err);
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <section id="book-trial" className="py-28 bg-muted/30 relative overflow-hidden">
