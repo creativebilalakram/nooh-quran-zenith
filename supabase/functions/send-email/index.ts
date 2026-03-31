@@ -6,7 +6,7 @@ const corsHeaders = {
 };
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY")!;
-const FROM_EMAIL = "Nooh Quran Academy <info@noohquran.creativebilal.com>";
+const FROM_EMAIL = "Nooh Quran Academy <noreply@noohquran.creativebilal.com>";
 const ADMIN_EMAIL = "creativebilalakram@gmail.com";
 
 function buildUserEmailHTML(name: string, plan: string, whatsapp: string, message: string) {
