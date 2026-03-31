@@ -183,8 +183,8 @@ const ContactForm = () => {
               <label className="font-body text-sm font-medium text-foreground mb-2 block">Message</label>
               <Textarea placeholder="Tell us about your learning goals..." rows={4} className="font-body rounded-xl" value={message} onChange={(e) => setMessage(e.target.value)} />
             </div>
-            <Button variant="hero" size="lg" className="w-full h-14 text-base rounded-xl" type="submit">
-              Start Your Free Trial
+            <Button variant="hero" size="lg" className="w-full h-14 text-base rounded-xl" type="submit" disabled={submitting}>
+              {submitting ? "Sending..." : "Start Your Free Trial"}
             </Button>
 
             <div className="flex flex-wrap justify-center gap-6 pt-4">
