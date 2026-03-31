@@ -27,6 +27,9 @@ const Footer = () => (
           <p className="font-body text-sm text-background/40">
             © {new Date().getFullYear()} Nooh Quran Learning Center.<br />All rights reserved.
           </p>
+          <a href="https://creativebilal.com" target="_blank" rel="noopener noreferrer" className="inline-block mt-2 font-body text-xs text-background/30 hover:text-accent transition-colors">
+            Powered by Creative Bilal
+          </a>
         </div>
       </div>
     </div>
