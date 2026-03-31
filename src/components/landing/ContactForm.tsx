@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Shield, Clock, HeartHandshake, MessageCircle, Mail, CalendarCheck, User, BookOpen } from "lucide-react";
 import { usePlan } from "@/context/PlanContext";
 import { generateUserId, openWhatsAppWithBooking } from "@/lib/whatsapp";
+import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
 const guarantees = [
@@ -63,19 +64,18 @@ const ContactForm = () => {
       }
     );
 
-    // Send confirmation email via Resend
+    // Send confirmation email via Edge Function
     try {
-      await fetch("/api/send-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+      const { error } = await supabase.functions.invoke('send-email', {
+        body: {
           name: name.trim(),
           email: email.trim(),
           plan: selectedPlan,
           whatsapp: whatsapp.trim(),
           message: message.trim(),
-        }),
+        },
       });
+      if (error) console.error("Email notification failed:", error);
     } catch (emailErr) {
       console.error("Email notification failed:", emailErr);
     }
