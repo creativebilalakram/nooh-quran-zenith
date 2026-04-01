@@ -22,8 +22,18 @@ import review16 from "@/assets/reviews/review-16.png";
 import review17 from "@/assets/reviews/review-17.png";
 import review18 from "@/assets/reviews/review-18.png";
 import review19 from "@/assets/reviews/review-19.png";
+import review20 from "@/assets/reviews/review-20.png";
+import review21 from "@/assets/reviews/review-21.png";
+import review22 from "@/assets/reviews/review-22.png";
+import review23 from "@/assets/reviews/review-23.png";
+import review24 from "@/assets/reviews/review-24.png";
+import review25 from "@/assets/reviews/review-25.png";
+import review26 from "@/assets/reviews/review-26.png";
+import review27 from "@/assets/reviews/review-27.png";
+import review28 from "@/assets/reviews/review-28.png";
+import review29 from "@/assets/reviews/review-29.png";
 
-const images = [review1, review2, review3, review4, review5, review6, review7, review8, review9, review10, review11, review12, review13, review14, review15, review16, review17, review18, review19];
+const images = [review1, review2, review3, review4, review5, review6, review7, review8, review9, review10, review11, review12, review13, review14, review15, review16, review17, review18, review19, review20, review21, review22, review23, review24, review25, review26, review27, review28, review29];
 const allImages = [...images, ...images];
 
 const FACEBOOK_REVIEWS_URL =
