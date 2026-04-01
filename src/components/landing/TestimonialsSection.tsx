@@ -82,7 +82,7 @@ const TestimonialsSection = () => {
         <div
           className="flex gap-6 py-4 px-4"
           style={{
-            animation: "scrollLeft 45s linear infinite",
+            animation: "scrollLeft 90s linear infinite",
             animationPlayState: isPaused || isLightboxOpen ? "paused" : "running",
             width: "max-content",
           }}
