@@ -3,41 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, ExternalLink, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-import review1 from "@/assets/reviews/review-1.png";
-import review2 from "@/assets/reviews/review-2.png";
-import review3 from "@/assets/reviews/review-3.png";
-import review4 from "@/assets/reviews/review-4.png";
-import review5 from "@/assets/reviews/review-5.png";
-import review6 from "@/assets/reviews/review-6.png";
-import review7 from "@/assets/reviews/review-7.png";
-import review8 from "@/assets/reviews/review-8.png";
-import review9 from "@/assets/reviews/review-9.png";
-import review10 from "@/assets/reviews/review-10.png";
-import review11 from "@/assets/reviews/review-11.png";
-import review12 from "@/assets/reviews/review-12.png";
-import review13 from "@/assets/reviews/review-13.png";
-import review14 from "@/assets/reviews/review-14.png";
-import review15 from "@/assets/reviews/review-15.png";
-import review16 from "@/assets/reviews/review-16.png";
-import review17 from "@/assets/reviews/review-17.png";
-import review18 from "@/assets/reviews/review-18.png";
-import review19 from "@/assets/reviews/review-19.png";
-import review20 from "@/assets/reviews/review-20.png";
-import review21 from "@/assets/reviews/review-21.png";
-import review22 from "@/assets/reviews/review-22.png";
-import review23 from "@/assets/reviews/review-23.png";
-import review24 from "@/assets/reviews/review-24.png";
-import review25 from "@/assets/reviews/review-25.png";
-import review26 from "@/assets/reviews/review-26.png";
-import review27 from "@/assets/reviews/review-27.png";
-import review28 from "@/assets/reviews/review-28.png";
-import review29 from "@/assets/reviews/review-29.png";
-import review30 from "@/assets/reviews/review-30.png";
-import review31 from "@/assets/reviews/review-31.png";
-import review32 from "@/assets/reviews/review-32.png";
-import review33 from "@/assets/reviews/review-33.png";
-
-const images = [review1, review2, review3, review4, review5, review6, review7, review8, review9, review10, review11, review12, review13, review14, review15, review16, review17, review18, review19, review20, review21, review22, review23, review24, review25, review26, review27, review28, review29, review30, review31, review32, review33];
+const images = Array.from({ length: 33 }, (_, i) => `/reviews/review-${i + 1}.png`);
 const allImages = [...images, ...images];
 
 const FACEBOOK_REVIEWS_URL =
