@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY || "";
-const FROM_EMAIL = "Nooh Quran Academy <noreply@noohquran.creativebilal.com>";
+const FROM_EMAIL = "Nooh Quran Academy <noreply@info.noohquranlearningcentre.com>";
 const ADMIN_EMAIL = "sarwarhafizusman83@gmail.com";
 
 function buildUserEmailHTML(name: string, plan: string, whatsapp: string, message: string) {
